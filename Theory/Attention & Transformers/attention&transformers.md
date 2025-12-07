@@ -46,6 +46,7 @@
     $$
     
     Результат показывает, насколько запрос "совместим" с каждым ключом.
+ 
  2. Значения передаются в функцию softmax для генерации весов — вероятностного распределения внимания (в сумме они дают 1): 
     
     $$ 
@@ -93,37 +94,36 @@ $$
 ## Принцип работы
 
  1. В каждой голове self-attention используется свой набор проекций входных эмбеддингов $X$ в векторы $Q$, $K$, $V$:
-    
-$$
-Q_i = X W_i^Q, \quad K_i = X W_i^K, \quad V_i = X W_i^V
-$$
-    
-    где $i = 1, \dots, h$, $h$ — число голов, а матрицы $W_i^Q, W_i^K, W_i^V$ имеют размерность $d_{model} \times d_k$.  
+ 
+	$$
+	Q_i = X W_i^Q, \quad K_i = X W_i^K, \quad V_i = X W_i^V
+	$$
+
+	где $i = 1, \dots, h$, $h$ — число голов, а матрицы $W_i^Q, W_i^K, W_i^V$ имеют размерность $d_{model} \times d_k$.  
     
     Размерность каждой головы: 
-    
-$$
-d_k = \frac{d_{model}}{h}
-$$
+
+	$$
+	d_k = \frac{d_{model}}{h}
+	$$
 
  2. Каждая голова вычисляет self-attention независимо:
-    
-$$
-\text{Attention}(Q_i, K_i, V_i) = \text{softmax}\left(\frac{Q_i K_i^\top}{\sqrt{d_k}}\right) V_i
-$$
-  
+
+	$$
+	\text{Attention}(Q_i, K_i, V_i) = \text{softmax}\left(\frac{Q_i K_i^\top}{\sqrt{d_k}}\right) V_i
+	$$
+
  3. Выходы всех голов конкатенируются:
-        
-$$ 
-\text{Concat}(head_1, \dots, head_h) \in \mathbb{R}^{d_{model}}
-$$
+
+	$$ 
+	\text{Concat}(head_1, \dots, head_h) \in \mathbb{R}^{d_{model}}
+	$$
+
+    и затем проходят через финальную линейную трансформацию $W^O \in \mathbb{R}^{d_{model} \times d_{model}}$:
     
-    и затем проходят через финальную линейную трансформацию $W^O \in
-    \mathbb{R}^{d_{model} \times d_{model}}$:
-    
-$$
-\text{MultiHead}(Q,K,V) = \text{Concat}(head_1, \dots, head_h)\, W^O
-$$
+	$$
+	\text{MultiHead}(Q,K,V) = \text{Concat}(head_1, \dots, head_h)\, W^O
+	$$
 
 Таким образом, для каждого токена получается новый вектор размерности $d_{model}$, содержащий информацию со всех голов.
 
