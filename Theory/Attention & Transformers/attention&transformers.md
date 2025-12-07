@@ -101,27 +101,19 @@ $$
     
     Размерность каждой головы: 
 
-	$$
-	d_k = \frac{d_{model}}{h}
-	$$
+	$$d_k = \frac{d_{model}}{h}$$
 
  2. Каждая голова вычисляет self-attention независимо:
 
-	$$
-	\text{Attention}(Q_i, K_i, V_i) = \text{softmax}\left(\frac{Q_i K_i^\top}{\sqrt{d_k}}\right) V_i
-	$$
+	$$\text{Attention}(Q_i, K_i, V_i) = \text{softmax}\left(\frac{Q_i K_i^\top}{\sqrt{d_k}}\right) V_i$$
 
  3. Выходы всех голов конкатенируются:
-
-	$$ 
-	\text{Concat}(head_1, \dots, head_h) \in \mathbb{R}^{d_{model}}
-	$$
+ 
+	$$\text{Concat}(head_1, \dots, head_h) \in \mathbb{R}^{d_{model}}$$
 
     и затем проходят через финальную линейную трансформацию $W^O \in \mathbb{R}^{d_{model} \times d_{model}}$:
     
-	$$
-	\text{MultiHead}(Q,K,V) = \text{Concat}(head_1, \dots, head_h)\, W^O
-	$$
+	$$\text{MultiHead}(Q,K,V) = \text{Concat}(head_1, \dots, head_h)\, W^O$$
 
 Таким образом, для каждого токена получается новый вектор размерности $d_{model}$, содержащий информацию со всех голов.
 
