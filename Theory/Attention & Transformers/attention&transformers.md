@@ -95,9 +95,7 @@ $$
 
  1. В каждой голове self-attention используется свой набор проекций входных эмбеддингов $X$ в векторы $Q$, $K$, $V$:
  
-	$$
-	Q_i = X W_i^Q, \quad K_i = X W_i^K, \quad V_i = X W_i^V
-	$$
+	$$Q_i = X W_i^Q, \quad K_i = X W_i^K, \quad V_i = X W_i^V$$
 
 	где $i = 1, \dots, h$, $h$ — число голов, а матрицы $W_i^Q, W_i^K, W_i^V$ имеют размерность $d_{model} \times d_k$.  
     
