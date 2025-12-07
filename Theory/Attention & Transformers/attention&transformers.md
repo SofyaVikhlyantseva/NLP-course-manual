@@ -211,7 +211,8 @@ $W_1, b_1, W_2, b_2$ — обучаемые параметры.
 Ниже представлена схема устройста энкодера и декодера.
 
 ![encoder_and_decoder.png](https://raw.githubusercontent.com/SofyaVikhlyantseva/NLP-course-manual/refs/heads/main/Theory/Attention%20%26%20Transformers/encoder_and_decoder.png)
-<sub>Источник: [The Transformer architecture](https://d2l.ai/chapter_attention-mechanisms-and-transformers/transformer.html)</sub>
+<sub>
+Источник: [The Transformer architecture](https://d2l.ai/chapter_attention-mechanisms-and-transformers/transformer.html)</sub>
 
 # Предобучение и fine-tuning
 
