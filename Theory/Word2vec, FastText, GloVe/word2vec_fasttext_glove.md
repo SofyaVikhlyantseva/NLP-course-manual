@@ -90,10 +90,10 @@ $$
 >
 > Правильный ответ: “колесо”
 
-![](https://github.com/SofyaVikhlyantseva/NLP-course-manual/blob/main/Theory/Word2vec%2C%20FastText%2C%20GloVe/semantic_calculator_rusvectores.png)
+<img src="https://github.com/SofyaVikhlyantseva/NLP-course-manual/blob/main/Theory/Word2vec%2C%20FastText%2C%20GloVe/semantic_calculator_rusvectores.png" height="50%" width="50%" height="auto">
+
 <sub>Источник: [Семантический калькулятор RusVectōrēs](https://rusvectores.org/ru/calculator/#)</sub>
 
 Такая арифметика появляется не потому, что мы явно её задаём, а потому что модель выучивает полезные признаки, позволяющие предсказывать. Вообще говоря, цель нейросети — преобразовать сложное признаковое пространство так, чтобы оно «распуталось» во что-то более простое.
 
 Если модель обучается на задаче близости, она выучивает что-то, что может иметь перенос (генерализацию). Таким образом, получаем эффект, который хоть и не закладывали в обучении, но который логично было бы ожидать.
-
